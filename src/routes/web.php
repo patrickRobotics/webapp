@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/user', 'welcome');
+Route::view('/login', 'welcome');
