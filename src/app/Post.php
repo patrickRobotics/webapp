@@ -7,8 +7,8 @@ use \Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    protected $fillabel = ['title', 'content'];
-    
+    protected $fillable = ['title', 'content'];
+
     public function getPosts($session) 
     {
         if(!$session->has('posts')) {
