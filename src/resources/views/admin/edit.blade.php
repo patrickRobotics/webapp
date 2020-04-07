@@ -26,6 +26,7 @@
                         value="{{ $post['content'] }}"
                     >
                 </div>
+                <input type="hidden" name="id" values="{{ $postId }}">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
