@@ -66,3 +66,12 @@ $post = Post::find(10);
 
 `$posts = Post::all();`, `$posts = Post::where()->get();` -> collection of models
 [Collections](https://laravel.com/docs/5.8/collections) methods: `filter();`, `sort();`, `each();`, `...();`
+
+### [Seeding](https://laravel.com/docs/5.8/seeding) the database
+
+`php artisan make:seed PostTableSeeder`
+regenerate Composer's autoloader using:`composer dump-autoload`
+then seed db by running:
+`php artisan db:seed`
+`php artisan migrate --seed` if you want to run both migrations and seeding at the same time. This command is useful for completely re-building your database:
+or run individual seed class using: `php artisan db:seed --class=UsersTableSeeder`
