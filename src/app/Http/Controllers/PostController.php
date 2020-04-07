@@ -10,13 +10,13 @@ class PostController extends Controller
 {
     public function getIndex()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('blog.index', ['posts' => $posts]);
     }
 
     public function getAdminIndex()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('title', 'asc')->get();
         return view('admin.index', ['posts' => $posts]);
     }
 
@@ -33,7 +33,7 @@ class PostController extends Controller
 
     public function getAdminEdit($id) 
     {
-        $post = Post::find($id);
+        $post = Post::where('id', $id)->first();
         return view('admin.edit', ['post' => $post, 'postId' => $id]);
     }
 
@@ -58,8 +58,7 @@ class PostController extends Controller
             'title' => 'required|min:5',
             'content' => 'required|min:10'
         ]);
-        $id = $request->input('id');
-        $post = Post::find($id);
+        $post = Post::find($request->input('id'));
         $post->title = $request->input('title');
         $post->content = $request->input('content');
         $post->save();
