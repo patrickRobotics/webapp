@@ -29,7 +29,7 @@ class PostController extends Controller
 
     public function getLikePost($id)
     {
-        $post = Post::find($id);
+        $post = Post::find($id)->with('likes')->first();
         $like = new Like();
         $post->likes()->save($like);
         return redirect()->back();
