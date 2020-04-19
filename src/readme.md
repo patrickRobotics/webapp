@@ -75,3 +75,8 @@ then seed db by running:
 `php artisan db:seed`
 `php artisan migrate --seed` if you want to run both migrations and seeding at the same time. This command is useful for completely re-building your database:
 or run individual seed class using: `php artisan db:seed --class=UsersTableSeeder`
+
+### Updating databse migrations
+
+`php artisan migrate:refresh` this will rollback old migrations and update with the new changes.
+`php artisan migrate:refresh --seed` will in addition to refreshing migrations seed the db as well
