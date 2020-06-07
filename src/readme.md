@@ -60,6 +60,15 @@ $post = Post::where('title', '=', 'Title')->first();
 $posts = Post::all();
 // specific model - Get by ID shortcut
 $post = Post::find(10);
+// Many to Many relationship - Fetch data
+$tags = Post::find(10)->tags;
+$tags = Post::find(10)->tags()->orderBy( ...)->get();
+// Many to Many relationship - Insert data
+$post = Post::find(10);
+$tagId = 1;
+$post->tags()->attach($tagId);
+// Many to Many relationship - Delete data
+$post->tags()->detach($tagId);
 ```
 
 ### Laravel Collections
